@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour
 {
+    public GameObject avia;
+
     // Update is called once per frame
     void Update()
     {
@@ -17,6 +19,7 @@ public class Title : MonoBehaviour
     private IEnumerator Go()
     {
         GetComponent<AudioSource>().Play();
+        avia.SetActive(true);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Game");
     }

@@ -6,6 +6,8 @@ public class SoundEffects : MonoBehaviour
 {
     public AudioClip jump;
     public AudioClip fire;
+    public AudioClip hit;
+    public AudioClip points;
 
     private AudioSource asr;
 
@@ -22,5 +24,15 @@ public class SoundEffects : MonoBehaviour
             asr.PlayOneShot(jump);
         else if (Input.GetKeyDown(KeyCode.Z))
             asr.PlayOneShot(fire);
+    }
+
+    public void Hit()
+    {
+        asr.PlayOneShot(hit);
+    }
+
+    public void Points()
+    {
+        asr.PlayOneShot(points);
     }
 }

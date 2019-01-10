@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+    private SoundEffects sfx;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        sfx = GameObject.Find("SoundEffects").GetComponent<SoundEffects>();
     }
 
     // Update is called once per frame
@@ -17,5 +19,15 @@ public class Laser : MonoBehaviour
 
         if (this.transform.position.x >= 50f)
             Destroy(this.gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.name.Contains("Zombie"))
+        {
+            sfx.Hit();
+            Destroy(col.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

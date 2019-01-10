@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class StepSound : MonoBehaviour
 {
-    public AudioClip step;
+    public AudioClip step1;
+    public AudioClip step2;
+
 
     private AudioSource asrc;
     private bool running;
@@ -27,6 +29,11 @@ public class StepSound : MonoBehaviour
     private void Step()
     {
         if (running)
-            asrc.PlayOneShot(step);
+        {
+            if(Random.value < .5f)
+                asrc.PlayOneShot(step1);
+            else
+                asrc.PlayOneShot(step2);
+        }
     }
 }
